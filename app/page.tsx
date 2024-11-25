@@ -10,7 +10,7 @@ export default async function Home() {
   return (
     <div className="">
       <main className="mt-36">
-        {!user ? (
+        {user ? (
           <div className="text-center">
             <p className="mt-24 leading-[82px] lg:text-7xl text-5xl font-medium tracking-tight">
               All set!
