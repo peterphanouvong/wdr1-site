@@ -1,49 +1,57 @@
+import { Button } from "@/components/ui/button";
 import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { Leaderboard } from "./leaderboard";
 
 export default async function Home() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        {user ? (
-          <div className="text-center -mt-24">
-            <p className="mt-24 leading-[82px] text-7xl font-medium tracking-tight">
+    <div className="">
+      <main className="mt-36">
+        {!user ? (
+          <div className="text-center">
+            <p className="mt-24 leading-[82px] lg:text-7xl text-5xl font-medium tracking-tight">
               All set!
             </p>
-            <p className="text-2xl mt-9">Great - you’re registered</p>
-            <p className="text-2xl mt-6">
+            <p className="lg:text-2xl mt-4 lg:mt-9">
+              Great - you’re registered
+            </p>
+            <p className="lg:text-2xl mt-3 lg:mt-6">
               Meet us at the booth to compete in round 1
             </p>
           </div>
         ) : (
-          <div className="text-center">
-            <h2 className="text-[180px] leading-[175px] tracking-tight font-medium">
+          <div className="text-center px-4 sm:px-6 lg:px-8">
+            <h2 className="text-7xl sm:text-[120px] md:text-[150px] lg:text-[180px] lg:leading-[175px] md:leading-[140px] sm:leading-[110px] leading-[70px] tracking-tight font-medium">
               Kinde
               <br />
               Speedrun
             </h2>
-            <p className="text-2xl text-black mt-16">
+            <p className="sm:text-2xl text-black mt-8 sm:mt-12 lg:mt-16">
               Beat the fastest time and you could win an Exway Ripple electric
               skateboard
             </p>
 
-            <p className="mt-24 leading-[82px] text-7xl font-medium tracking-tight">
+            <p className="mt-12 sm:mt-16 lg:mt-24 leading-tight text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight">
               Register to get started
             </p>
-            <div className="mt-12">
-              <RegisterLink className="text-white font-medium bg-black hover:bg-slate-950 focus:outline-none focus:ring-4 h-12 focus:ring-slate-300 rounded-lg text-sm px-4 py-3 me-2 mb-2">
-                Register
-              </RegisterLink>
+            <div className="mt-8 sm:mt-10 lg:mt-12">
+              <Button asChild>
+                <RegisterLink>Register</RegisterLink>
+              </Button>
             </div>
 
-            <hr className="mt-32" />
+            <hr className="mt-16 sm:mt-24 lg:mt-32" />
 
-            <p className="mt-24 leading-[82px] text-7xl font-medium tracking-tight">
+            <h2 className="mt-16 sm:mt-20 lg:mt-24 leading-tight text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-8 lg:mb-12">
               Leaderboard
-            </p>
+            </h2>
+
+            <div>
+              <Leaderboard />
+            </div>
           </div>
         )}
       </main>
