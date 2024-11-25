@@ -9,19 +9,41 @@ export default async function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         {user ? (
-          <p className="text-xl text-gray-800 dark:text-gray-200">
-            👋🏻 Hey {user.given_name}!
-            <br />
-            You are registered for the Web Directions 2024 Kinde competition.
-          </p>
+          <div className="text-center -mt-24">
+            <p className="mt-24 leading-[82px] text-7xl font-medium tracking-tight">
+              All set!
+            </p>
+            <p className="text-2xl mt-9">Great - you’re registered</p>
+            <p className="text-2xl mt-6">
+              Meet us at the booth to compete in round 1
+            </p>
+          </div>
         ) : (
           <div className="text-center">
-            <p className="text-xl text-gray-800 dark:text-gray-200 mb-4">
-              Register for the Web Directions 2024 Kinde competition.
+            <h2 className="text-[180px] leading-[175px] tracking-tight font-medium">
+              Kinde
+              <br />
+              Speedrun
+            </h2>
+            <p className="text-2xl text-black mt-16">
+              Beat the fastest time and you could win an Exway Ripple electric
+              skateboard
             </p>
-            <RegisterLink className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-              Register
-            </RegisterLink>
+
+            <p className="mt-24 leading-[82px] text-7xl font-medium tracking-tight">
+              Register to get started
+            </p>
+            <div className="mt-12">
+              <RegisterLink className="text-white font-medium bg-black hover:bg-slate-950 focus:outline-none focus:ring-4 h-12 focus:ring-slate-300 rounded-lg text-sm px-4 py-3 me-2 mb-2">
+                Register
+              </RegisterLink>
+            </div>
+
+            <hr className="mt-32" />
+
+            <p className="mt-24 leading-[82px] text-7xl font-medium tracking-tight">
+              Leaderboard
+            </p>
           </div>
         )}
       </main>
