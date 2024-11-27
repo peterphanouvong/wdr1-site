@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import {
+  LogoutLink,
+  RegisterLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Leaderboard } from "./leaderboard";
 
@@ -12,7 +15,10 @@ export default async function Home() {
       <main className="mt-36">
         {!!user ? (
           <div className="text-center">
-            <p className="mt-24 leading-[82px] lg:text-7xl text-5xl font-medium tracking-tight">
+            <p className="lg:text-2xl mb-4 lg:mb-9">
+              Hey {user?.given_name} 👋🏻
+            </p>
+            <p className="leading-[82px] lg:text-7xl text-5xl font-medium tracking-tight">
               All set!
             </p>
             <p className="lg:text-2xl mt-4 lg:mt-9">
@@ -21,6 +27,11 @@ export default async function Home() {
             <p className="lg:text-2xl mt-3 lg:mt-6">
               Meet us at the booth to compete in round 1
             </p>
+            <div className="mt-8 sm:mt-10 lg:mt-12">
+              <Button variant={"outline"} asChild>
+                <LogoutLink>Logout</LogoutLink>
+              </Button>
+            </div>
           </div>
         ) : (
           <div className="text-center px-4 sm:px-6 lg:px-8">
